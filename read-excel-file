@@ -1,0 +1,13 @@
+const fileName = "./sales.xlsx";
+const { parse } = require("csv-parse");
+const XLSX = require("xlsx");
+
+const readFile = (fileName) => {
+  const workbook = XLSX.readFile(fileName);
+  let worksheet = workbook.Sheets[workbook.SheetNames[0]];
+  for (let i = 1; i < 2; i++) {
+    console.log(`A${i}`);
+    console.log(worksheet[`A${i}`]);
+  }
+};
+module.exports = { readFile };
